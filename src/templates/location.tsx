@@ -3,7 +3,7 @@ import Banner from "../components/banner";
 import List from "../components/list";
 import BreadCrumbs from "../components/BreadCrumbs";
 import LocationInformation from "../components/LocationInformation";
-import About from "../components/About";
+import About from "../components/about";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import Card from "../components/card";
