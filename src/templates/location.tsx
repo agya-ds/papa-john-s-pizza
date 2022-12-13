@@ -139,6 +139,10 @@ export const getPath: GetPath<TemplateProps> = ({ document }) => {
   }
   return url;
 };
+// export const getPath: GetPath<TemplateProps> = ({ document }) => {
+
+//   return `index.html`;
+// };
 
 // export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
 //   document,
