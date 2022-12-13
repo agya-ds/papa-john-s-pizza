@@ -11,8 +11,8 @@ export const livSiteUrl = "";
 export const cookieText =
   "We use cookies on our website. Some are essential to enable to site to function, others are analytical and help us monitor site usage, whilst some are used for the personalisation of ads. You are free to manage this via your browser setting at any time. To learn more about how we use these cookies, please see our ";
 export const bannerText = "Favorite - Britain's Tastiest Chicken!";
-export const newsLetter = "https://favorite.co.uk/newsletter";
-export const locator = "https://favorite.co.uk/store-finder";
+// export const newsLetter = "https://favorite.co.uk/newsletter";
+// export const locator = "https://favorite.co.uk/store-finder";
 export const callNearByApi = "server-side"; 
 // use "client-side" for client side api calling
 export const robotsMetaStatus = "noindex, nofollow";
@@ -30,10 +30,10 @@ export const OrganizationSocialMediaUrls = {
   instagram: "https://www.instagram.com/favoritechickenribs",
   twitter: "https://twitter.com/FavoriteChicken",
 };
-export const OrganizationName = "Favorite Fried Chicken Limited";
-export const OrganizationLogo =
-  "https://favorite.co.uk/assets/img/logo-social.png";
-export const cookiesUrl = "https://favorite.co.uk/cookies";
+// export const OrganizationName = "Favorite Fried Chicken Limited";
+// export const OrganizationLogo =
+//   "https://favorite.co.uk/assets/img/logo-social.png";
+// export const cookiesUrl = "https://favorite.co.uk/cookies";
 
 export function slugify(slugString:any){
     slugString.toLowerCase().toString();
