@@ -1,7 +1,6 @@
 {
   
     "exclude_list": [
-      "404.html",
-      "robots.txt"
+      "404.html"
     ]
 }

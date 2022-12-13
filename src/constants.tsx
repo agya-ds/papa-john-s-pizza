@@ -1,8 +1,8 @@
 export const limit = 4;
-export const radius = 1500;
+export const radius = 2500;
 export const defaultQuery = "";
 export const api_base_url = "https://liveapi-sandbox.yext.com/v2/accounts/me";
-export const liveAPIKey = "34e87513115cc37605b44437d83950ee";
+export const liveAPIKey = "71dbd045a5d7c414e36acbdec69473c2";
 export const googleMapsApiKey = "AIzaSyDZNQlSlEIkFAct5VzUtsP4dSbvOr2bE18";
 export const savedFilterId = "1111065609";
 export const entityTypes = "Location";

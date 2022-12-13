@@ -268,16 +268,10 @@ type ExternalApiData = TemplateProps & { externalApiData: nearByLocation };
 export const transformProps: TransformProps<ExternalApiData> = async (
   data: any
 ) => {
-  const url = `${api_base_url}entities/geosearch?radius=${radius}&location=${
-    data.document.yextDisplayCoordinate &&
-    data.document.yextDisplayCoordinate.latitude
-  },${
-    data.document.yextDisplayCoordinate &&
-    data.document.yextDisplayCoordinate.longitude
-  }&api_key=${liveAPIKey}&v=20181201&resolvePlaceholders=true&entityTypes=${entityTypes}&savedFilterId=${savedFilterId}&limit=${limit}&fields=googlePlaceId,slug,address,addressHidden,hours,name,geocodedCoordinate,isoRegionCode,localPhone,mainPhone,timezone,yextDisplayCoordinate,meta,timeZoneUtcOffset,what3WordsAddress,closed`;
-  const externalApiData = (await fetch(url)
-    .then((res: any) => res.json())
-    .catch((error: any) => {})) as nearByLocation;
+  const url = `https://liveapi-sandbox.yext.com/v2/accounts/me/entities/geosearch?radius=2500&location=${data.document.yextDisplayCoordinate.latitude},${data.document.yextDisplayCoordinate.longitude}&filter={}&api_key=71dbd045a5d7c414e36acbdec69473c2&v=20181201&resolvePlaceholders=true&entityTypes=location&limit=3&savedFilterIds=1111065609`;
+  const externalApiData = (await fetch(url).then((res: any) =>
+    res.json()
+  )) as nearByLocation;
   return { ...data, externalApiData };
 };
 
@@ -570,14 +564,14 @@ const Location: Template<ExternalApiRenderData> = ({
         ) : (
           <></>
         )}
-        {/* <NearByLocation
+        <NearByLocation
           prop={externalApiData}
-          parents={dm_directoryParents}
+          // parents={dm_directoryParents}
           baseUrl={relativePrefixToRoot}
           coords={yextDisplayCoordinate}
           slug={slug}
-          what3WordsAddress={what3WordsAddress}
-        /> */}
+          // what3WordsAddress={what3WordsAddress}
+        />
         {/* <Footer
           data={_site.c_footerLinks}
           address={_site.address}
