@@ -16,13 +16,13 @@ export const getPath = () => {
   return `robots.txt`;
 };
 
-export const render = (data: any): string => {
-  /*
-   * Return a string that will be served at <your-site-domain>.com/robots.txt.
-   * For more information about robots.txt, check out this resource: https://developers.google.com/search/docs/advanced/robots/intro
-   * An empty robots.txt will NOT prevent any pages from being crawled.
-   */
+// export const render = (data: any): string => {
+//   /*
+//    * Return a string that will be served at <your-site-domain>.com/robots.txt.
+//    * For more information about robots.txt, check out this resource: https://developers.google.com/search/docs/advanced/robots/intro
+//    * An empty robots.txt will NOT prevent any pages from being crawled.
+//    */
 
-  return `Sitemap: ${stagingBaseUrl}/sitemap.xml
-  User-agent: /`;
-};
+//   return `Sitemap: ${stagingBaseUrl}/sitemap.xml
+//   User-agent: /`;
+// };
