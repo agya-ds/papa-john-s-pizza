@@ -1,0 +1,17 @@
+{
+    "$id": "site-entity",
+    "filter": {
+      "entityIds": ["ffc-footer"]
+    },
+    "source": "knowledgeGraph",
+    "fields": [
+     
+        "name"  
+     
+
+    ],
+    "localization": {
+      "locales": ["en"],
+      "primary": false
+    }
+  }
