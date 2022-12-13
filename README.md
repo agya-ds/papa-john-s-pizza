@@ -1,6 +1,6 @@
-# Favorite Fried Chicken
+# PAPA JOHN'S
 
-Created by Dotsquares
+<!-- Created by Dotsquares
 
 ## Getting Started
 
@@ -112,4 +112,4 @@ The rest of the files are basic config setup common to many other React projects
 1. Tailwind CSS (which leverages PostCSS) - used for easy styling
 1. ESLint - catches errors in your code
 1. Prettier - formats your code (you can add .prettierrc to override any default settings)
-1. TypeScript - adds typing to Javascript for a better developer experience
+1. TypeScript - adds typing to Javascript for a better developer experience -->
