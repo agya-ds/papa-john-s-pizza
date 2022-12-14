@@ -1,13 +1,13 @@
 import * as React from "react";
-import phone from "../images/phone.png";
+import phone from "../images/bg-img.png";
 import appStore from "../images/app-store.svg";
 import playStore from "../images/play-store.svg";
-import bgImg from "../images/app-bg.png";
+import bgImg from "../images/app-bg1.jpg";
 import { Link } from "@yext/pages/components";
 type Props = {
   c_title: any;
   c_description1: any;
-  c_backgroundImages: any;
+  c_backgroundimages: any;
   androidAppUrl: any;
   iosAppUrl: any;
 };
@@ -29,7 +29,7 @@ const AddPromotion = (Data: Props) => {
       <div className="app_promotion-sec">
         <img
           className="app-bg"
-          src={Data.c_backgroundImages ? Data.c_backgroundImages.url : bgImg}
+          src={Data.c_backgroundimages ? Data.c_backgroundimages.url : bgImg}
           alt="app-bg"
           title="app-bg"
           loading="lazy"

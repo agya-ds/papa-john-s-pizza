@@ -82,6 +82,7 @@ export const config: TemplateConfig = {
       "mainPhone",
       "deliveryHours",
       "timezone",
+      "additionalHoursText",
       // "what3WordsAddress",
       /*social Media*/
       // "facebookPageUrl",
@@ -97,11 +98,11 @@ export const config: TemplateConfig = {
       /*Best Selling Favourite Favorites*/
       // "c_bestSellingFavouriteFavorite",
       /*Download the app*/
-      // "c_title",
-      // "c_description2",
-      // "c_backgroundImages",
-      // "androidAppUrl",
-      // "iosAppUrl",
+      "c_title",
+      "c_description1",
+      "c_backgroundimages",
+      "androidAppUrl",
+      "iosAppUrl",
       /*faq*/
       "c_frequentlyAskedQuestions.question",
       "c_frequentlyAskedQuestions.answer",
@@ -111,9 +112,9 @@ export const config: TemplateConfig = {
       // "c_metaTitle",
       // "logo"
       /* DM fields */
-      // "dm_directoryParents.name",
-      // "dm_directoryParents.slug",
-      // "dm_directoryParents.meta.entityType",
+      "dm_directoryParents.name",
+      "dm_directoryParents.slug",
+      "dm_directoryParents.meta.entityType"
       // "dm_directoryParents.c_addressRegionDisplayName",
     ],
     localization: {
@@ -315,8 +316,8 @@ const Location: Template<ExternalApiRenderData> = ({
     // c_headingH2,
     // c_ourFoods,
     // c_bestSellingFavouriteFavorite,
-    // c_title,
-    // c_description2,
+    c_title,
+    c_description1,
     c_backgroundImages,
     androidAppUrl,
     iosAppUrl,
@@ -324,15 +325,15 @@ const Location: Template<ExternalApiRenderData> = ({
     what3WordsAddress,
     description,
     yextDisplayCoordinate,
-    // dm_directoryParents,
+    dm_directoryParents,
     slug,
     googlePlaceId,
     _site,
   } = document;
 
-  let templateData = { document: document, __meta: __meta };
-  let hoursSchema = [];
-  let breadcrumbScheme = [];
+  // let templateData = { document: document, __meta: __meta };
+  // let hoursSchema = [];
+  // let breadcrumbScheme = [];
 
   // if (hours) {
   //   for (var key in hours) {
@@ -393,14 +394,14 @@ const Location: Template<ExternalApiRenderData> = ({
   } else {
     url = `${document.slug.toString()}.html`;
   }
-  breadcrumbScheme.push({
-    "@type": "ListItem",
-    position: 4,
-    item: {
-      "@id": `${stagingBaseUrl}/${url}`,
-      name: document.name,
-    },
-  });
+  // breadcrumbScheme.push({
+  //   "@type": "ListItem",
+  //   position: 4,
+  //   item: {
+  //     "@id": `${stagingBaseUrl}/${url}`,
+  //     name: document.name,
+  //   },
+  // });
 
   return (
     <>
@@ -485,11 +486,11 @@ const Location: Template<ExternalApiRenderData> = ({
         }}
       /> */}
 
-      <AnalyticsProvider
+      {/* <AnalyticsProvider
         templateData={templateData}
         enableDebugging={AnalyticsEnableDebugging} 
         enableTrackingCookie={AnalyticsEnableTrackingCookie}
-      >
+      > */}
         {" "}
         <AnalyticsScopeProvider name={""}>
           {/* <Header
@@ -502,11 +503,13 @@ const Location: Template<ExternalApiRenderData> = ({
             playStore={_site.c_playStore}
           /> */}
         
-        {/* <BreadCrumbs
+        <BreadCrumbs
           name={name}
           parents={dm_directoryParents}
-          address={address}
-        ></BreadCrumbs>  */}
+          baseUrl={relativePrefixToRoot}
+          address={{}}
+        ></BreadCrumbs>
+        
         <Banner
           Name={name}
           TagLine={c_tagline}
@@ -548,22 +551,13 @@ const Location: Template<ExternalApiRenderData> = ({
         ) : (
           <></>
         )} */}
-        {/* {c_title || c_description2 || androidAppUrl || iosAppUrl ? (
-          <AddPromotion
-            c_title={c_title}
-            c_description1={c_description2}
-            c_backgroundImages={c_backgroundImages}
-            androidAppUrl={androidAppUrl}
-            iosAppUrl={iosAppUrl}
-          />
-        ) : (
-          <></>
-        )} */}
+     
         {c_frequentlyAskedQuestions ? (
           <Faq prop={c_frequentlyAskedQuestions} />
         ) : (
           <></>
         )}
+      
         <NearByLocation
           prop={externalApiData}
           // parents={dm_directoryParents}
@@ -572,6 +566,17 @@ const Location: Template<ExternalApiRenderData> = ({
           slug={slug}
           // what3WordsAddress={what3WordsAddress}
         />
+     {c_title || c_description1 || androidAppUrl || iosAppUrl ? (
+          <AddPromotion
+            c_title={c_title}
+            c_description1={c_description1}
+            c_backgroundimages={c_backgroundImages}
+            androidAppUrl={androidAppUrl}
+            iosAppUrl={iosAppUrl}
+          />
+        ) : (
+          <></>
+        )}
         {/* <Footer
           data={_site.c_footerLinks}
           address={_site.address}
@@ -584,7 +589,7 @@ const Location: Template<ExternalApiRenderData> = ({
           newsLetter={newsLetter}
         /> */}
         </AnalyticsScopeProvider>
-      </AnalyticsProvider>
+      {/* </AnalyticsProvider> */}
     </>
   );
 };

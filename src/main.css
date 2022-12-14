@@ -301,7 +301,7 @@ Breadcrumb
   @apply flex flex-wrap md:flex-row items-center leading-5 md:leading-10 text-[10px] md:text-sm pt-2 pb-2 md:py-0;
 }
 .breadcrumb ul li{
-  @apply align-middle text-red font-medium md:font-normal;
+  @apply align-middle text-[#0f9675] font-medium md:font-normal;
 }
 .breadcrumb ul li svg{
   @apply w-3 md:w-5
@@ -543,7 +543,36 @@ Location information
   @apply h-5
 }
 
+/* holiday popup */
+.pop-up-holyhrs{@apply flex flex-row justify-around border border-b-0 last:border-b  p-2}
+.holytime-sec{@apply w-48 flex justify-evenly}
+.spac-bx{@apply w-8 text-center}
+.op-time{@apply w-8 }
+.cl-time{@apply w-8 }
+.days-sec{@apply w-8}
 
+
+
+/*  */
+/* .ReactModal__Content > div > button{
+  @apply font-title-text-font
+} */
+.ReactModal__Content > div > button > div{
+  @apply  text-lg
+}
+.ReactModal__Content > div > div .form-input{
+  @apply col-span-3 rounded-none border py-2.5 px-4 h-auto leading-5
+}
+.ReactModal__Content > div > div > button{
+  @apply border   px-3.5 py-2.5 capitalize w-full text-base
+}
+.h-px{
+  @apply border-b 
+}
+.ReactModal__Overlay.ReactModal__Overlay--after-open:after{
+  @apply content-[''] w-7 h-7 leading-none absolute top-3.5 right-3.5 text-white text-4xl font-normal  bg-[length:24px_24px] bg-no-repeat bg-center cursor-pointer
+}
+/* end */
 /* --------------------------------------------
 About
 -----------------------------------------------*/
@@ -866,11 +895,11 @@ Footer
 /* */
 
 .storelocation-category{ @apply px-2 w-1/2 sm:w-1/3 lg:w-1/4 xl:w-1/4 2xl:w-1/4 p-4  }
-.storelocation-category a{ @apply  justify-center items-center text-center flex border border-[#eee] p-4 w-full rounded-xl transition-all transform hover:scale-[1.05] hover:bg-dark_red hover:text-white h-full}
+.storelocation-category a{ @apply  justify-center items-center text-center flex border border-[#eee] p-4 w-full rounded-xl transition-all transform hover:scale-[1.05] hover:bg-[#0f9675] hover:text-white h-full}
 .four-sec{@apply py-32 lg:py-40 text-center  text-xl font-normal leading-6  mb-4}  
 
 .four-sec p { @apply w-full inline-block mt-4}
-.btn-no{ @apply my-8  px-4 py-2.5 bg-red hover:bg-dark_red text-white rounded w-auto inline-block transition-all duration-300;}
+.btn-no{ @apply my-8  px-4 py-2.5 bg-[#0f9675] hover:bg-[#ab131b] text-white rounded w-auto inline-block transition-all duration-300;}
 
 
 .CookieConsent{    background: rgba(0,0,0,0.75) !important; @apply  !leading-4 !right-[15px] !bottom-5 !text-[0.813em] !w-auto md:!w-[320px] bg-opacity-80 md:!right-[15px] !left-[15px] md:!left-auto !p-2.5   }
