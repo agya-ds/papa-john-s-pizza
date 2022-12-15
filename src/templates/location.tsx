@@ -569,7 +569,7 @@ const Location: Template<ExternalApiRenderData> = ({
       
         <NearByLocation
           prop={externalApiData}
-          // parents={dm_directoryParents}
+          parents={dm_directoryParents}
           baseUrl={relativePrefixToRoot}
           coords={yextDisplayCoordinate}
           slug={slug}

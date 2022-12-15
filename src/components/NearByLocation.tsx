@@ -75,62 +75,62 @@ console.log(enearByLoc.prop.response.entities,'enearByLoc.prop.response.entities
           >
             {enearByLoc.prop.response.entities &&
               enearByLoc.prop.response.entities.map((e: any, index: any) => {
-                // let url = "";
-                // if (!e.slug) {
-                //   let slugString = e.meta.id + " " + e.name;
-                //   let slug = slugify(slugString);
-                //   url = `${slug}.html`;
-                // } else {
-                //   url = `${e.slug.toString()}.html`;
-                // }
+                let url = "";
+                if (!e.slug) {
+                  let slugString = e.meta.id + " " + e.name;
+                  let slug = slugify(slugString);
+                  url = `${slug}.html`;
+                } else {
+                  url = `${e.slug.toString()}.html`;
+                }
 
-                // var origin: any = null;
-                // if (e.address.city) {
-                //   origin = e.address.city;
-                // } else if (e.address.region) {
-                //   origin = e.address.region;
-                // } else {
-                //   origin = e.address.country;
-                // }
+                var origin: any = null;
+                if (e.address.city) {
+                  origin = e.address.city;
+                } else if (e.address.region) {
+                  origin = e.address.region;
+                } else {
+                  origin = e.address.country;
+                }
 
-                // if (enearByLoc.slug != e.slug && e.closed != true) {
-                //   let addressString = "";
-                //   let addressLines = e.address?.line1 + ", " + e.address?.line2;
+                if (enearByLoc.slug != e.slug && e.closed != true) {
+                  let addressString = "";
+                  let addressLines = e.address?.line1 + ", " + e.address?.line2;
 
-                //   if (addressLines.length > 42) {
-                //     addressString += e.address?.line1 + ", <br />";
-                //     let addressLine =
-                //       e.address?.line2 + ", " + e.address?.city + ", ";
-                //     if (addressLine.length > 42) {
-                //       addressString +=
-                //         e.address?.line2 + ", " + e.address?.city + ",<br />";
-                //       addressString +=
-                //         e.address?.postalCode +
-                //         ", " +
-                //         regionNames.of(e.address?.countryCode);
-                //     } else {
-                //       addressString +=
-                //         e.address?.line2 +
-                //         ", " +
-                //         e.address?.city +
-                //         ", " +
-                //         e.address?.postalCode +
-                //         ", <br />";
-                //       addressString += regionNames.of(e.address?.countryCode);
-                //     }
-                //   } else {
-                //     let line2 = "";
-                //     if (e.address?.line2 != undefined) {
-                //       line2 = e.address?.line2 + ", ";
-                //     }
-                //     addressString += e.address?.line1 + ", " + line2 + "<br />";
-                //     addressString +=
-                //       e.address?.city +
-                //       ", " +
-                //       e.address?.postalCode +
-                //       ", <br />";
-                //     addressString += regionNames.of(e.address?.countryCode);
-                //   }
+                  if (addressLines.length > 42) {
+                    addressString += e.address?.line1 + ", <br />";
+                    let addressLine =
+                      e.address?.line2 + ", " + e.address?.city + ", ";
+                    if (addressLine.length > 42) {
+                      addressString +=
+                        e.address?.line2 + ", " + e.address?.city + ",<br />";
+                      addressString +=
+                        e.address?.postalCode +
+                        ", " +
+                        regionNames.of(e.address?.countryCode);
+                    } else {
+                      addressString +=
+                        e.address?.line2 +
+                        ", " +
+                        e.address?.city +
+                        ", " +
+                        e.address?.postalCode +
+                        ", <br />";
+                      addressString += regionNames.of(e.address?.countryCode);
+                    }
+                  } else {
+                    let line2 = "";
+                    if (e.address?.line2 != undefined) {
+                      line2 = e.address?.line2 + ", ";
+                    }
+                    addressString += e.address?.line1 + ", " + line2 + "<br />";
+                    addressString +=
+                      e.address?.city +
+                      ", " +
+                      e.address?.postalCode +
+                      ", <br />";
+                    addressString += regionNames.of(e.address?.countryCode);
+                  }
                
                   return (
                     <SplideSlide key={index}>
@@ -148,7 +148,7 @@ console.log(enearByLoc.prop.response.entities,'enearByLoc.prop.response.entities
                           {/* <p
                             dangerouslySetInnerHTML={{ __html: addressString }}
                           /> */}
-                          <p>{e.address.line1?e.address.line1:''}, {e.address.line2?e.address.line2:''}<br/>{e.address.city?e.address.city:''},{e.address.postaCode?e.address.postaCode:''}{e.address.countryCode?e.address.countryCode:''}</p>
+                          <p dangerouslySetInnerHTML={{ __html: addressString }}></p>
                         </div>
 
                         {e.mainPhone ? (
@@ -200,7 +200,7 @@ console.log(enearByLoc.prop.response.entities,'enearByLoc.prop.response.entities
                         </div>
                       </div>
                     </SplideSlide>
-                  );
+                  )};
                 }
               )}
           </Splide>
