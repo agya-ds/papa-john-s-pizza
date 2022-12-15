@@ -9,7 +9,7 @@ import { stagingBaseUrl, slugify, conversionDetailsDirection, conversionDetailsP
   // import favicon from "../images/favicon-live.png";
   // import Logo from "../images/logo.svg";
   import { JsonLd } from "react-schemaorg";
-  import "../index.css";
+  import "../main.css";
   import { Link } from "@yext/pages/components";
   import { svgIcons } from "../svgIcon";
   import getDirectionUrl from "../getDirection";
@@ -230,12 +230,12 @@ import { stagingBaseUrl, slugify, conversionDetailsDirection, conversionDetailsP
       
       let url = "";      
       if (!entity.slug) {
-        let slugString = entity.id+" "+entity.name;    
+        let slugString = entity.id;    
         let slug = slugify(slugString);  
         // console.log('slug', slug); 
         url = `${slug}.html`;       
       } else {
-        url = `${entity.slug.toString()}.html`;
+        url = `${entity.slug?.toString()}.html`;
       }
       
       // const what3WordsAddressString = entity.what3WordsAddress ? (
@@ -328,7 +328,7 @@ import { stagingBaseUrl, slugify, conversionDetailsDirection, conversionDetailsP
                   "@type": "ListItem",
                   position: currentIndex + 1,
                   item: {
-                    "@id": `${stagingBaseUrl}/${document.slug.toString()}.html`,
+                    "@id": `${stagingBaseUrl}/${document.slug?.toString()}.html`,
                     name: document?.name,
                   },
                 });

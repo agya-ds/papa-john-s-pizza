@@ -309,7 +309,9 @@ Breadcrumb
 .breadcrumb ul li a{
   @apply inline-flex items-center min-h-[20px] md:h-10 align-top text-light_black hover:underline after:w-1 after:md:w-1.5 after:h-1 after:md:h-1.5 after:transform after:rotate-45 after:border-r after:border-t after:mx-1 after:md:mx-2.5 after:border-light_black transition-all duration-300; 
 }
-
+/* .breadcrumb ul li.breadcrumbcity{
+  @apply inline-flex items-center min-h-[20px] md:h-10 align-top text-[#0f9675] after:w-1 after:md:w-1.5 after:h-1 after:md:h-1.5 after:transform after:rotate-45 after:border-r after:border-t after:mx-1 after:md:mx-2.5 after:border-black;
+} */
 /* --------------------------------------------
 Hero Area
 -----------------------------------------------*/
