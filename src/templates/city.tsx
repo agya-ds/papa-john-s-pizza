@@ -6,7 +6,7 @@ import BreadCrumbs from "../components/BreadCrumbs";
 import { stagingBaseUrl, slugify, conversionDetailsDirection, conversionDetailsPhone,  AnalyticsEnableDebugging,
   AnalyticsEnableTrackingCookie } from "../constants";
   // import bannerImage from "../images/app-bg.png";
-  // import favicon from "../images/favicon-live.png";
+  import favicon from "../images/favicon.png";
   // import Logo from "../images/logo.svg";
   import { JsonLd } from "react-schemaorg";
   import "../main.css";
@@ -71,130 +71,130 @@ import { stagingBaseUrl, slugify, conversionDetailsDirection, conversionDetailsP
     return document.slug + ".html";
   };
   
-  // export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
-  //   document,
-  // }): HeadConfig => {
-  //   let metaDescription = document.c_metaDescription
-  //   ? document.c_metaDescription
-  //   : "Visit your Favorite Restaurant in "+document.name+" for Britain's Tastiest Chicken. Find our menu, order delivery, timings here.";
-  //   let metaTitle = document.c_metaTitle
-  //   ? document.c_metaTitle
-  //   : "Find Favorite Restaurant in "+document.name+" | Britain's Tastiest Chicken!";
+  export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
+    document,
+  }): HeadConfig => {
+    let metaDescription = document.c_metaDescription
+    ? document.c_metaDescription
+    : "Visit your "+document.name+"Get the real Papa John's taste now – order fresh cooked pizza, sides, drinks and desserts online for delivery or takeaway. Better ingredients. Better pizza";
+    let metaTitle = document.c_metaTitle
+    ? document.c_metaTitle
+    : "Visit "+document.name+" | Order Pizza: Delivery Or Takeaway | ";
     
-  //   return {
-  //     title: metaTitle,
-  //     charset: "UTF-8",
-  //     viewport: "width=device-width, initial-scale=1",
-  //     tags: [
-  //       {
-  //         type: "link",
-  //         attributes: {
-  //           rel: "icon",
-  //           type: "image/x-icon",
-  //           href: favicon,
-  //         },
-  //       },
-  //       {
-  //         type: "meta",
-  //         attributes: {
-  //           name: "description",
-  //           content: `${metaDescription}`,
-  //         },
-  //       },
-  //       {
-  //         type: "meta",
-  //         attributes: {
-  //           name: "author",
-  //           content: "FAVORITE CHICKEN & RIBS",
-  //         },
-  //       },
+    return {
+      title: metaTitle,
+      charset: "UTF-8",
+      viewport: "width=device-width, initial-scale=1",
+      tags: [
+        {
+          type: "link",
+          attributes: {
+            rel: "icon",
+            type: "image/x-icon",
+            href: favicon,
+          },
+        },
+        {
+          type: "meta",
+          attributes: {
+            name: "description",
+            content: `${metaDescription}`,
+          },
+        },
+        {
+          type: "meta",
+          attributes: {
+            name: "author",
+            content: "Papa John's Pizza",
+          },
+        },
         
-  //       {
-  //         type: "meta",
-  //         attributes: {
-  //           name: "robots",
-  //           content: "noindex, nofollow",
-  //         },
-  //       },
+        {
+          type: "meta",
+          attributes: {
+            name: "robots",
+            content: "noindex, nofollow",
+          },
+        },
         
-  //       {
-  //         type: "link",
-  //         attributes: {
-  //           rel: "canonical",
-  //           href: ` ${
-  //             document.c_canonical
-  //             ? document.c_canonical
-  //             : `${stagingBaseUrl}/${document.slug.toString()}.html`
-  //           }`,
-  //         },
-  //       },
-  //       ///og tags
+        {
+          type: "link",
+          attributes: {
+            rel: "canonical",
+            href: ` ${
+              document.c_canonical
+              ? document.c_canonical
+              : `${stagingBaseUrl}/${document.slug.toString()}.html`
+            }`,
+          },
+        },
+        ///og tags
         
-  //       {
-  //         type: "meta",
-  //         attributes: {
-  //           property: "og:url",
-  //           content: `${stagingBaseUrl}/${document.slug.toString()}.html`,
-  //         },
-  //       },
+        {
+          type: "meta",
+          attributes: {
+            property: "og:url",
+            content: `${stagingBaseUrl}/${document.slug.toString()}.html`,
+          },
+        },
         
-  //       {
-  //         type: "meta",
-  //         attributes: {
-  //           property: "og:description",
-  //           content: `${metaDescription}`,
-  //         },
-  //       },
-  //       {
-  //         type: "meta",
-  //         attributes: {
-  //           property: "og:title",
-  //           content: `${metaTitle}`,
-  //         },
-  //       },
-  //       {
-  //         type: "meta",
-  //         attributes: {
-  //           name: "og:image",
-  //           content: `${Logo}`,
-  //         },
-  //       },
+        {
+          type: "meta",
+          attributes: {
+            property: "og:description",
+            content: `${metaDescription}`,
+          },
+        },
+        {
+          type: "meta",
+          attributes: {
+            property: "og:title",
+            content: `${metaTitle}`,
+          },
+        },
+        {
+          type: "meta",
+          attributes: {
+            name: "og:image",
+            content: "https://www.papajohns.com.mx/en-US/images/logos/pji_arch_red_en.png",
+          },
+        },
         
-  //       /// twitter tag
+        /// twitter tag
         
-  //       {
-  //         type: "meta",
-  //         attributes: {
-  //           name: "twitter:image",
-  //           content: `${Logo}`,
-  //         },
-  //       },
+        {
+          type: "meta",
+          attributes: {
+            name: "twitter:image",
+            content: "https://www.papajohns.com.mx/en-US/images/logos/pji_arch_red_en.png",
+          },
+        },
         
-  //       {
-  //         type: "meta",
-  //         attributes: {
-  //           name: "twitter:card",
-  //           content: "summary",
-  //         },
-  //       },
-  //       {
-  //         type: "meta",
-  //         attributes: {
-  //           name: "twitter:url",
-  //           content: `${stagingBaseUrl}/${document.slug.toString()}.html`,
-  //         },
-  //       },
+        {
+          type: "meta",
+          attributes: {
+            name: "twitter:card",
+            content: "summary",
+          },
+        },
+        {
+          type: "meta",
+          attributes: {
+            name: "twitter:url",
+            content: `${stagingBaseUrl}/${document.slug.toString()}.html`,
+          },
+        },
         
-  //       {
-  //         type: "meta",
-  //         attributes: {
-  //           name: "twitter:description",
-  //           content: `${metaDescription}`,
-  //         },
-  //       },
-  //     ],
-  //   };
-  // };
+        {
+          type: "meta",
+          attributes: {
+            name: "twitter:description",
+            content: `${metaDescription}`,
+          },
+        },
+      ],
+    };
+  };
   
   const City: Template<TemplateRenderProps> = ({
     relativePrefixToRoot,
@@ -362,14 +362,14 @@ import { stagingBaseUrl, slugify, conversionDetailsDirection, conversionDetailsP
                     ],
                   }}
                   /> */}
-                  {/* <JsonLd<BreadcrumbList>
+                  <JsonLd<BreadcrumbList>
                   item={{
                     "@context": "https://schema.org",
                     "@type": "BreadcrumbList",
                     
                     itemListElement: breadcrumbScheme,
                   }}
-                  /> */}
+                  />
                   <AnalyticsProvider
                   templateData={templateData}
                   enableDebugging={AnalyticsEnableDebugging} 

@@ -26,9 +26,9 @@ export const OrganizationAddress = {
 };
 export const OrganizationTelephone = "01255 222568";
 export const OrganizationSocialMediaUrls = {
-  facebook: "https://www.facebook.com/FavoriteChicken",
-  instagram: "https://www.instagram.com/favoritechickenribs",
-  twitter: "https://twitter.com/FavoriteChicken",
+  facebook: "https://www.facebook.com/papajohnsmx",
+  instagram: "https://www.instagram.com/papajohnsmx/",
+  twitter: "https://www.twitter.com/papajohnsmx",
 };
 // export const OrganizationName = "Favorite Fried Chicken Limited";
 // export const OrganizationLogo =

@@ -14,7 +14,7 @@ import FavoriteFood from "../components/FavoriteFood";
 import { nearByLocation } from "../types/nearByLocation";
 import { JsonLd } from "react-schemaorg";
 import Storefacility from "../components/Storefacility";
-import favicon from "../images/favicon-live.png";
+import favicon from "../images/favicon.png";
 import bannerImage from "../images/app-bg.png";
 // import About from "../components/About";
 import { Link } from "@yext/pages/components";
@@ -31,14 +31,14 @@ import {
   entityTypes,
   limit,
   stagingBaseUrl,
-  newsLetter,
+  // newsLetter,
   robotsMetaStatus,
   OrganizationAddress,
   OrganizationTelephone,
   OrganizationSocialMediaUrls,
   livSiteUrl,
-  OrganizationName,
-  OrganizationLogo,
+  // OrganizationName,
+  // OrganizationLogo,
   slugify,
   AnalyticsEnableDebugging,
   AnalyticsEnableTrackingCookie
@@ -145,125 +145,125 @@ export const getPath: GetPath<TemplateProps> = ({ document }) => {
 //   return `index.html`;
 // };
 
-// export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
-//   document,
-// }): HeadConfig => {
-//   let metaDescription = document.c_metaDescription
-//     ? document.c_metaDescription
-//     : "Visit your "+document.name+" store for Britain's Tastiest Chicken. Find our menu, order delivery, and timings here.";
-//   let metaTitle = document.c_metaTitle
-//     ? document.c_metaTitle
-//     : "Visit "+document.name+" | Britain's Tastiest Chicken!";
+export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
+  document,
+}): HeadConfig => {
+  let metaDescription = document.c_metaDescription
+    ? document.c_metaDescription
+    : "Visit your "+document.name+"Get the real Papa John's taste now – order fresh cooked pizza, sides, drinks and desserts online for delivery or takeaway. Better ingredients. Better pizza";
+  let metaTitle = document.c_metaTitle
+    ? document.c_metaTitle
+    : "Visit "+document.name+" | Order Pizza: Delivery Or Takeaway | ";
 
-//   return {
-//     charset: "UTF-8",
-//     title: metaTitle,
-//     viewport: "width=device-width, initial-scale=1",
-//     tags: [
-//       {
-//         type: "link",
-//         attributes: {
-//           rel: "icon",
-//           type: "image/x-icon",
-//           href: favicon,
-//         },
-//       },
-//       {
-//         type: "meta",
-//         attributes: {
-//           name: "description",
-//           content: `${metaDescription}`,
-//         },
-//       },
+  return {
+    charset: "UTF-8",
+    title: metaTitle,
+    viewport: "width=device-width, initial-scale=1",
+    tags: [
+      {
+        type: "link",
+        attributes: {
+          rel: "icon",
+          type: "image/x-icon",
+          href: favicon,
+        },
+      },
+      {
+        type: "meta",
+        attributes: {
+          name: "description",
+          content: `${metaDescription}`,
+        },
+      },
 
-//       {
-//         type: "meta",
-//         attributes: {
-//           name: "author",
-//           content: "FAVORITE CHICKEN & RIBS",
-//         },
-//       },
+      {
+        type: "meta",
+        attributes: {
+          name: "author",
+          content: "Papa John's Pizza",
+        },
+      },
 
-//       {
-//         type: "meta",
-//         attributes: {
-//           name: "robots",
-//           content: robotsMetaStatus,
-//         },
-//       },
+      {
+        type: "meta",
+        attributes: {
+          name: "robots",
+          content: robotsMetaStatus,
+        },
+      },
 
-//       {
-//         type: "link",
-//         attributes: {
-//           rel: "canonical",
-//           href: `${
-//             document.c_canonical
-//               ? document.c_canonical
-//               : stagingBaseUrl + "/" + url
-//           }`,
-//         },
-//       },
-//       {
-//         type: "meta",
-//         attributes: {
-//           property: "og:url",
-//           content: stagingBaseUrl + "/" + url,
-//         },
-//       },
+      {
+        type: "link",
+        attributes: {
+          rel: "canonical",
+          href: `${
+            document.c_canonical
+              ? document.c_canonical
+              : stagingBaseUrl + "/" + url
+          }`,
+        },
+      },
+      {
+        type: "meta",
+        attributes: {
+          property: "og:url",
+          content: stagingBaseUrl + "/" + url,
+        },
+      },
 
-//       {
-//         type: "meta",
-//         attributes: {
-//           property: "og:description",
-//           content: `${metaDescription}`,
-//         },
-//       },
-//       {
-//         type: "meta",
-//         attributes: {
-//           property: "og:title",
-//           content: `${metaTitle}`,
-//         },
-//       },
-//       {
-//         type: "meta",
-//         attributes: {
-//           property: "og:image",
-//           content: `${document.logo ? document.logo.image.url : ""}`,
-//         },
-//       },
-//       {
-//         type: "meta",
-//         attributes: {
-//           name: "twitter:card",
-//           content: "summary",
-//         },
-//       },
-//       {
-//         type: "meta",
-//         attributes: {
-//           name: "twitter:url",
-//           content: stagingBaseUrl + "/" + url,
-//         },
-//       },
+      {
+        type: "meta",
+        attributes: {
+          property: "og:description",
+          content: `${metaDescription}`,
+        },
+      },
+      {
+        type: "meta",
+        attributes: {
+          property: "og:title",
+          content: `${metaTitle}`,
+        },
+      },
+      {
+        type: "meta",
+        attributes: {
+          property: "og:image",
+          content: "https://www.papajohns.com.mx/en-US/images/logos/pji_arch_red_en.png",
+        },
+      },
+      {
+        type: "meta",
+        attributes: {
+          name: "twitter:card",
+          content: "summary",
+        },
+      },
+      {
+        type: "meta",
+        attributes: {
+          name: "twitter:url",
+          content: stagingBaseUrl + "/" + url,
+        },
+      },
 
-//       {
-//         type: "meta",
-//         attributes: {
-//           name: "twitter:description",
-//           content: metaDescription,
-//         },
-//       },
-//       {
-//         type: "meta",
-//         attributes: {
-//           name: "twitter:image",
-//           content: `${document.logo ? document.logo.image.url : ""}`,
-//         },
-//       },
-//     ],
-//   };
-// };
+      {
+        type: "meta",
+        attributes: {
+          name: "twitter:description",
+          content: metaDescription,
+        },
+      },
+      {
+        type: "meta",
+        attributes: {
+          name: "twitter:image",
+          content: "https://www.papajohns.com.mx/en-US/images/logos/pji_arch_red_en.png",
+        },
+      },
+    ],
+  };
+};
 
 type ExternalApiData = TemplateProps & { externalApiData: nearByLocation };
 export const transformProps: TransformProps<ExternalApiData> = async (
@@ -331,60 +331,60 @@ const Location: Template<ExternalApiRenderData> = ({
     _site,
   } = document;
 
-  // let templateData = { document: document, __meta: __meta };
-  // let hoursSchema = [];
-  // let breadcrumbScheme = [];
+  let templateData = { document: document, __meta: __meta };
+  let hoursSchema = [];
+  let breadcrumbScheme = [];
 
-  // if (hours) {
-  //   for (var key in hours) {
-  //     if (hours.hasOwnProperty(key)) {
-  //       let openIntervalsSchema: any = "";
-  //       if (key !== "holidayHours") {
-  //         if (hours[key].isClosed) {
-  //           openIntervalsSchema = {
-  //             "@type": "OpeningHoursSpecification",
-  //             dayOfWeek: key,
-  //           };
-  //         } else {
-  //           let end = "";
-  //           let start = "";
-  //           if (typeof hours[key].openIntervals != "undefined") {
-  //             let openIntervals = hours[key].openIntervals;
-  //             for (var o in openIntervals) {
-  //               if (openIntervals.hasOwnProperty(o)) {
-  //                 end = openIntervals[o].end;
-  //                 start = openIntervals[o].start;
-  //               }
-  //             }
-  //           }
-  //           openIntervalsSchema = {
-  //             "@type": "OpeningHoursSpecification",
-  //             closes: end,
-  //             dayOfWeek: key,
-  //             opens: start,
-  //           };
-  //         }
-  //       } else {
-  //       }
+  if (hours) {
+    for (var key in hours) {
+      if (hours.hasOwnProperty(key)) {
+        let openIntervalsSchema: any = "";
+        if (key !== "holidayHours") {
+          if (hours[key].isClosed) {
+            openIntervalsSchema = {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: key,
+            };
+          } else {
+            let end = "";
+            let start = "";
+            if (typeof hours[key].openIntervals != "undefined") {
+              let openIntervals = hours[key].openIntervals;
+              for (var o in openIntervals) {
+                if (openIntervals.hasOwnProperty(o)) {
+                  end = openIntervals[o].end;
+                  start = openIntervals[o].start;
+                }
+              }
+            }
+            openIntervalsSchema = {
+              "@type": "OpeningHoursSpecification",
+              closes: end,
+              dayOfWeek: key,
+              opens: start,
+            };
+          }
+        } else {
+        }
 
-  //       hoursSchema.push(openIntervalsSchema);
-  //     }
-  //   }
-  // }
+        hoursSchema.push(openIntervalsSchema);
+      }
+    }
+  }
 
-  // dm_directoryParents &&
-  //   dm_directoryParents.map((i: any, index: any) => {
-  //     if (index != 0) {
-  //       breadcrumbScheme.push({
-  //         "@type": "ListItem",
-  //         position: index,
-  //         item: {
-  //           "@id": `${stagingBaseUrl}/${i.slug}`,
-  //           name: i.name,
-  //         },
-  //       });
-  //     }
-  //   });
+  dm_directoryParents &&
+    dm_directoryParents.map((i: any, index: any) => {
+      if (index != 0) {
+        breadcrumbScheme.push({
+          "@type": "ListItem",
+          position: index,
+          item: {
+            "@id": `${stagingBaseUrl}/${i.slug}`,
+            name: i.name,
+          },
+        });
+      }
+    });
   let url = "";
   let Name: any = document.name.toLowerCase().toString();
   Name = name.replace(/[&\/\\#^+()$~%.'":*?<>{}!@]/g, "");
@@ -394,22 +394,22 @@ const Location: Template<ExternalApiRenderData> = ({
   } else {
     url = `${document.slug.toString()}.html`;
   }
-  // breadcrumbScheme.push({
-  //   "@type": "ListItem",
-  //   position: 4,
-  //   item: {
-  //     "@id": `${stagingBaseUrl}/${url}`,
-  //     name: document.name,
-  //   },
-  // });
+  breadcrumbScheme.push({
+    "@type": "ListItem",
+    position: 4,
+    item: {
+      "@id": `${stagingBaseUrl}/${url}`,
+      name: document.name,
+    },
+  });
 
   return (
     <>
-      {/* <JsonLd<Resturant>
+      <JsonLd<Resturant>
         item={{
           "@context": "https://schema.org",
           "@type": "Restaurant",
-          name: "Favorite Chicken & Ribs",
+          name: "Papa John's Pizza",
           description: description,
           telephone: document.mainPhone,
           image:stagingBaseUrl + Logo,
@@ -423,16 +423,16 @@ const Location: Template<ExternalApiRenderData> = ({
           },
           openingHoursSpecification: hours ? hoursSchema : [],
         }}
-      /> */}
-      {/* <JsonLd<BreadcrumbList>
+      />
+      <JsonLd<BreadcrumbList>
         item={{
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
 
           itemListElement: breadcrumbScheme,
         }}
-      /> */}
-      {/* {frequentlyAskedQuestions ? (
+      />
+      {c_frequentlyAskedQuestions? (
         <>
           <JsonLd<FAQPage>
             item={{
@@ -440,8 +440,8 @@ const Location: Template<ExternalApiRenderData> = ({
               "@type": "FAQPage",
 
               mainEntity:
-                frequentlyAskedQuestions &&
-                frequentlyAskedQuestions.map((i: any) => {
+              c_frequentlyAskedQuestions &&
+              c_frequentlyAskedQuestions.map((i: any) => {
                   return {
                     "@type": "Question",
                     name: i.question,
@@ -456,15 +456,15 @@ const Location: Template<ExternalApiRenderData> = ({
         </>
       ) : (
         <></>
-      )} */}
+      )}
 
-      {/* <JsonLd<Organization>
+      <JsonLd<Organization>
         item={{
           "@context": "https://schema.org",
           "@type": "Organization",
-          name: OrganizationName,
+          name: "Papa John's Pizza",
           url: livSiteUrl,
-          logo: OrganizationLogo,
+          logo: "https://www.papajohns.com.mx/en-US/images/logos/pji_arch_red_en.png",
           address: {
             "@type": OrganizationAddress.type,
             streetAddress: OrganizationAddress.streetAddress,
@@ -484,7 +484,7 @@ const Location: Template<ExternalApiRenderData> = ({
             OrganizationSocialMediaUrls.twitter,
           ],
         }}
-      /> */}
+      />
 
       {/* <AnalyticsProvider
         templateData={templateData}
