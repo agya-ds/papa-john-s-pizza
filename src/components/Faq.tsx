@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
-
+import { Link, useAnalytics } from "@yext/pages/components";
 type Faq = {
   prop: any;
 };
@@ -105,10 +105,22 @@ const Faq = (faqData: Faq) => {
                             <p>{i.answer}</p>
                           </div>
                         </div>
+                    
                       </>
+                      
                     );
                   // }
                 })}
+                       <Link
+                style={{ backgroundColor: "#ab131b", color: "white" }}
+                className="button ml-[416px] mx-8  mt-8"
+                href="#"
+                rel="noopener noreferrer"
+                eventName={`viewMore`}
+              >
+                {" "}
+                 ViewMore
+              </Link>
               </div>
             </div>
           </div>

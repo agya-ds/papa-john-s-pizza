@@ -328,7 +328,7 @@ Hero Area
   @apply mt-6
 }
 .hero .cta_btn .button{
-  @apply bg-white text-blue text-base hover:bg-[#ab131b] hover:text-white leading-8
+  @apply bg-white text-[#0f9675] text-base hover:bg-[#ab131b] hover:text-white leading-8
 }
 
 
@@ -726,7 +726,7 @@ FAQ's
   @apply w-full lg:w-[calc(50%_-_30px)]
 }
 .faq-blocks .right-faq{
-  @apply w-full lg:w-[calc(50%_-_30px)]
+  @apply w-full 
 }
 .faq-blocks .faq-block{
   @apply w-full border-b border-b-[#ab131b] border-opacity-10;
@@ -745,10 +745,10 @@ FAQ's
   @apply absolute top-4 right-0 border lg:border-2 border-[#ab131b] w-5 lg:w-7 h-5 lg:h-7 rounded-full z-10;
 }
 .faq-blocks .faq-block h4 .faq-icon:before{
-  @apply content-[''] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 lg:w-3 h-[1px] lg:h-0.5 bg-[#ab131b]
+  @apply content-[''] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 lg:w-3 h-[1px] lg:h-0.5 bg-[#0f9675]
 }
 .faq-blocks .faq-block h4 .faq-icon:after{
-  @apply content-[''] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-2 lg:h-3 w-[1px] lg:w-0.5 bg-[#ab131b]
+  @apply content-[''] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-2 lg:h-3 w-[1px] lg:w-0.5 bg-[#0f9675]
 }
 .faq-blocks .faq-block.opened h4 .faq-icon:after{
   @apply opacity-0
