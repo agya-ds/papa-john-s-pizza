@@ -42,7 +42,9 @@ export function slugify(slugString:any){
     slugString = slugString.replaceAll(" ", "-");
     return slugString.toLowerCase();
 };
-
+export const regionNames = new Intl.DisplayNames(
+  ['en'], { type: 'region' }
+);
 export const conversionDetailsDirection = {
   cid: "e801ea67-1c6e-4815-baac-e61a111e9f77",
   cv: "1",

@@ -1,175 +1,102 @@
 import * as React from "react";
-import { useEffect } from "react";
-import Logo from "../images/logo.svg";
-import appStore from "../images/play-store-icon.svg";
-import googlePlay from "../images/app-store-icon.svg";
-import "../main.css";
-import { svgIcons } from "../svgIcon";
-import { Link } from "@yext/pages/components";
-type props = {
-  data: any;
-  facebookPageUrl: any;
-  instagramHandle: any;
-  twitterHandle: any;
-  c_tikTok: any;
-  appStore: any;
-  playStore: any;
+// import Cta from "../components/cta";
+
+type Link = {
+  label: string;
+  url: string;
 };
 
-var insta: Boolean = false;
-var twitter: Boolean = false;
-var tiktok: Boolean = false;
-var facebook: Boolean = false;
+const links: Link[] = [
+  {
+    label: "Menu",
+    url: "https://www.papajohns.com.mx/menu",
+  },
+  {
+    label: "Promotions",
+    url: "https://www.papajohns.com.mx/promotions",
+  },
+  {
+    label: "Papa Talk",
+    url: "https://www.papajohnsfeedback.com/mex",
+  },
+  {
+    label: "Papa Rewards",
+    url: "https://www.papajohns.com.mx/papa-rewards",
+  },
+  {
+    label: "About Us",
+    url: "https://www.papajohns.com.mx/about-us",
+  },
+];
 
-const Header = (headerItem: props) => {
-  useEffect(() => {
-    document.body.setAttribute("id", "body");
-
-    let checkInsta = headerItem.instagramHandle
-      ? headerItem.instagramHandle.includes("https://www.instagram.com")
-      : "";
-
-    insta = checkInsta;
-
-    let checktwitter = headerItem.twitterHandle
-      ? headerItem.twitterHandle.includes("https://twitter.com")
-      : "";
-
-    twitter = checktwitter;
-
-    let checktiktok = headerItem.c_tikTok
-      ? headerItem.c_tikTok
-      : "".includes("https://www.tiktok.com");
-
-    tiktok = checktiktok;
-
-    let checkfacebook = headerItem.facebookPageUrl
-      ? headerItem.facebookPageUrl.includes("https://www.facebook.com")
-      : "";
-    facebook = checkfacebook;
-  });
-
-  const toggle = () => {
-    document.getElementById("body").classList.toggle("menu-opened");
-  };
+const Header = () => {
+  const linkDoms = links.map((link) => (
+    <div key={link.label}>
+      <a href={link.url} target="_blank" rel="noreferrer">
+        {link.label}
+      </a>
+    </div>
+  ));
 
   return (
     <>
-      <div className="site-header">
-        <div className="header-top">
-          <div className="container flex flex-row justify-between items-center">
-            <div className="logo">              
-              <Link href={"https://favorite.co.uk/"} rel="noopener noreferrer" eventName={`homeLogo`} >
-              <img
-                  src={Logo}
-                  alt="Favorite Fried Chicken"
-                  width="456"
-                  height="98"
-                />
-              </Link>
-            </div>
-            <a
-              href="#"
-              className="store-locator-link"
-              data-ya-track="storeLocator"
-            >
-              {svgIcons.addressPinHeader}
+      <div className="centered-container">
+      
+        <nav className="py-6 flex items-center justify-between">
+          <img
+            src="https://www.papajohns.com.mx/images/logos/pji_arch_red_en.png"
+            width="100"
+            height="100"
+          ></img>
+        
+          <div className="space-x-5">
+            {/* <Cta buttonText="Order Pickup" href="#" style="primary-cta"></Cta> */}
+            {/* <button
+              buttonText="Start My Order"
+              href="https://www.papajohns.com.mx/menu"
+              style="primary-cta"
+            ></Cta> */}
+          </div>
+        </nav>
+        <div className="flex">
+        <div className="text-2xl font-semibold"></div>
+          <div className="flex gap-x-10 text-lg font-semibold">{linkDoms}</div>
+      </div>
+      </div>
+      {/* <header>
+        <div className="relative bg-cover bg-center bg-no-repeat bg-white">
+          <div className="container px-4 flex flex-wrap p-0 items-center justify-between lg:justify-around bg-white">
+            <a href="/" className="text-center p-5">
+              <img src="https://ba-sh.com/fstrz/r/s/ba-sh.com/on/demandware.static/Sites-bash-us-Site/-/default/dw3b7e637f/images/logo.svg?frz-v=187"
+                alt="ba&amp;sh" width="128" height="37"/>
             </a>
-            <button
-              type="button"
-              className="menu-btn"
-              id="menu-btn"
-              onClick={toggle}
-              name="toggle-button"
-            >
-              <span></span>
+            <button type="button" className="w-8 h-6 flex flex-col justify-between lg:hidden">
+              <span className="bg-red w-full h-0.5"></span>
+              <span className="bg-red w-full h-0.5"></span>
+              <span className="bg-red w-full h-0.5"></span>
             </button>
-
-            <div className="app-link">
-              {headerItem.playStore ? (
-                <>                  
-                  <Link target="_blank" href={headerItem.playStore} rel="noopener noreferrer" eventName={`googlePlay`} >
-                    <img src={appStore} alt="Google Play" />{" "}
-                    <span>
-                      GET IT ON <b>Google Play</b>
-                    </span>
-                  </Link> 
-                </>
-              ) : (
-                ""
-              )}
-              {headerItem.appStore ? (                         
-                  <Link target="_blank" href={headerItem.appStore} rel="noopener noreferrer" eventName={`appStore`} >
-                  <img src={googlePlay} alt="App Store" />{" "}
-                    <span>
-                      Download on the <b>App Store</b>
-                    </span>
-                  </Link>                
-              ) : (
-                ""
-              )}
+          </div>
+          <div className="text-xs bg-black mb-4 hidden lg:block" id="navigation">
+            <div className="container max-w-7xl">
+              <ul className="flex flex-col lg:flex-row justify-center text-white text-xs w-full">
+                <li className="px-5"><a href="#"
+                  className="py-3 relative leading-[26px] inline-block align-bottom after:content-[''] after:absolute after:bottom-0 after:left-0 after:transition-all after:duration-500 after:w-0 after:bg-white after:h-1 hover:after:w-full uppercase">SALE</a></li>
+                <li className="px-5"><a href="#"
+                  className="py-3 relative leading-[26px] inline-block align-bottom after:content-[''] after:absolute after:bottom-0 after:left-0 after:transition-all after:duration-500 after:w-0 after:bg-white after:h-1 hover:after:w-full uppercase">NEW COLLECTION</a>
+                </li>
+                <li className="px-5"><a href="#"
+                  className="py-3 relative leading-[26px] inline-block align-bottom after:content-[''] after:absolute after:bottom-0 after:left-0 after:transition-all after:duration-500 after:w-0 after:bg-white after:h-1 hover:after:w-full uppercase">CLOTHING</a>
+                </li>
+                <li className="px-5"><a href="#"
+                  className="py-3 relative leading-[26px] inline-block align-bottom after:content-[''] after:absolute after:bottom-0 after:left-0 after:transition-all after:duration-500 after:w-0 after:bg-white after:h-1 hover:after:w-full uppercase">SHOES & ACCESSORIES</a></li>
+                <li className="px-5"><a href="#"
+                  className="py-3 relative leading-[26px] inline-block align-bottom after:content-[''] after:absolute after:bottom-0 after:left-0 after:transition-all after:duration-500 after:w-0 after:bg-white after:h-1 hover:after:w-full uppercase">BA&SH WORLD</a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
-        <nav className="navigation">
-          <div className="container flex flex-row justify-between">
-            <ul id="main-nav" className="main-nav">
-              {headerItem.data &&
-                headerItem.data.map((e: any, index: any) => {
-                  return (
-                    <>
-                      <li className="group relative" key={index.toString()}>
-                        <a href="#" data-ya-track="headerItem">
-                          {e.nav1}
-                        </a>
-                        <ul className="submenu">
-                          {e.nav2.map((e: any, index: any) => {
-                            return (
-                              <li key={index.toString()}>                               
-                                <Link href={e.link} rel="noopener noreferrer" eventName={`headerMenuItem`} >{e.label}</Link>
-                              </li>
-                            );
-                          })}
-                        </ul>
-                      </li>
-                    </>
-                  );
-                })}
-            </ul>
-
-            <ul className="social-links">
-              {headerItem.facebookPageUrl ? (
-                <li>                  
-                  <Link target="_blank" href={headerItem.facebookPageUrl} rel="noopener noreferrer" eventName={`socialLinks`} >{svgIcons.facebook}</Link>
-                </li>
-              ) : (
-                ""
-              )}
-              {headerItem.instagramHandle ? (
-                <li>
-                  <Link target="_blank" href={ insta? `/${headerItem.instagramHandle}`: `https://www.instagram.com/${headerItem.instagramHandle}`} rel="noopener noreferrer" eventName={`socialLinks`} >{svgIcons.instagram}</Link>
-                </li>
-              ) : (
-                ""
-              )}
-              {headerItem.twitterHandle ? (
-                <li>                  
-                  <Link target="_blank" href={twitter? `/${headerItem.twitterHandle}`: `https://twitter.com/${headerItem.twitterHandle}`} rel="noopener noreferrer" eventName={`socialLinks`} >{svgIcons.twitter}</Link>
-                </li>
-              ) : (
-                ""
-              )}
-              {headerItem.c_tikTok ? (
-                <li>                  
-                  <Link target="_blank" href={tiktok? `/${headerItem.c_tikTok}`: `https://www.tiktok.com/${headerItem.c_tikTok}`} rel="noopener noreferrer" eventName={`socialLinks`} >{svgIcons.tiktok}</Link>
-                </li>
-              ) : (
-                ""
-              )}
-            </ul>
-          </div>
-        </nav>
-      </div>
+      </header> */}
     </>
   );
 };

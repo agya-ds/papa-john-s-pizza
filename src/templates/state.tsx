@@ -1,34 +1,33 @@
 import * as React from "react";
 import Banner from "../components/banner";
-// import favicon from "../images/favicon.png";
-// import Footer from "../components/layouts/footer";
-// import Header from "../components/layouts/header";
+import Footer from "../components/footer";
+import Header from "../components/header";
 import BreadCrumbs from "../components/BreadCrumbs";
-import bannerImage from "../images/banner.png";
-import { slugify} from "../constants"
+import { stagingBaseUrl,  AnalyticsEnableDebugging,
+  AnalyticsEnableTrackingCookie } from "../constants";
+// import bannerImage from "../images/app-bg.png";
 import "../main.css";
+// import favicon from "../images/favicon-live.png";
+import { JsonLd } from "react-schemaorg";
 import {
   Template,
   GetPath,
-  GetRedirects,
   TemplateConfig,
   TemplateProps,
   TemplateRenderProps,
   GetHeadConfig,
   HeadConfig,
 } from "@yext/pages";
-import { stagingBaseUrl } from "../constants";
-import { JsonLd } from "react-schemaorg";
-import { Link   ,
+import {
   AnalyticsProvider,
-  AnalyticsScopeProvider } from "@yext/pages/components";
-  import {
-    AnalyticsEnableDebugging,
-    AnalyticsEnableTrackingCookie,
-  } from "../constants";
+  AnalyticsScopeProvider,
+} from "@yext/pages/components";
+// import Logo from "../images/logo.svg";
+var currentUrl = "";
+
 export const config: TemplateConfig = {
   stream: {
-    $id: "pizza_region",
+    $id: "states",
     filter: {
       savedFilterIds: ["dm_pizza-directory_address_region"],
     },
@@ -48,7 +47,12 @@ export const config: TemplateConfig = {
       "dm_directoryChildren.dm_directoryChildrenCount",
       "dm_directoryChildren.dm_directoryChildren.name",
       "dm_directoryChildren.dm_directoryChildren.slug",
-      "dm_directoryChildren.dm_directoryChildren.id",
+      "dm_directoryChildren.dm_directoryChildren.id"
+
+      //seo section
+      // "c_canonical",
+      // "c_metaDescription",
+      // "c_metaTitle",
     ],
     localization: {
       locales: ["en"],
@@ -56,30 +60,24 @@ export const config: TemplateConfig = {
     },
   },
 };
-var url: any = ""
-var currentUrl = "";
+
 export const getPath: GetPath<TemplateProps> = ({ document }) => {
-
-  document.dm_directoryParents.map((i: any) => {
-
-    if (i.meta.entityType.id == 'pizza_country') {
-      url = `${i.slug}/${document.slug.toString()}.html`
-    }
-  })
-  return url;
+  currentUrl = document.slug.toString() + ".html";
+  return document.slug.toString() + ".html";
 };
 
 // export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
-//   relativePrefixToRoot,
-//   path,
 //   document,
 // }): HeadConfig => {
-
-//   let metaDescription = document.c_metaDescription ? document.c_metaDescription : "Buy office supplies in the UK for your business, office, school, or small business. Our range has everything from stationery to furniture at great prices with a service you can trust. "+'|'+document.name;
-//   let metaTitle = document.c_metaTitle ? document.c_metaTitle : "Ryman Business® UK | Office Supplies | Businesses, Offices, & Schools"+document.name;
+//   let metaDescription = document.c_metaDescription
+//     ? document.c_metaDescription
+//     : "Visit your Favorite Restaurant in "+document.name+" for Britain's Tastiest Chicken. Find our menu, order delivery, timings here.";
+//   let metaTitle = document.c_metaTitle
+//     ? document.c_metaTitle
+//     : "Find Favorite Restaurant in "+document.name+" | Britain's Tastiest Chicken!";
 
 //   return {
-//     title:  document.c_metaTitle ? document.c_metaTitle : "Ryman Business® UK | Office Supplies | Businesses, Offices, & Schools" +'|'+document.name,
+//     title: metaTitle,
 //     charset: "UTF-8",
 //     viewport: "width=device-width, initial-scale=1",
 //     tags: [
@@ -102,15 +100,8 @@ export const getPath: GetPath<TemplateProps> = ({ document }) => {
 //       {
 //         type: "meta",
 //         attributes: {
-//           name: "title",
-//           content: `${metaTitle}`,
-//         },
-//       },
-//       {
-//         type: "meta",
-//         attributes: {
 //           name: "author",
-//           content: "Ryman Business® UK | Office Supplies | Businesses, Offices, & Schools",
+//           content: "FAVORITE CHICKEN & RIBS",
 //         },
 //       },
 
@@ -129,7 +120,7 @@ export const getPath: GetPath<TemplateProps> = ({ document }) => {
 //           href: ` ${
 //             document.c_canonical
 //               ? document.c_canonical
-//               : `${stagingBaseUrl}/${url}`
+//               : `${stagingBaseUrl}/${currentUrl}`
 //           }`,
 //         },
 //       },
@@ -139,7 +130,15 @@ export const getPath: GetPath<TemplateProps> = ({ document }) => {
 //         type: "meta",
 //         attributes: {
 //           property: "og:url",
-//           content: stagingBaseUrl + currentUrl,
+//           content: `${stagingBaseUrl}/${currentUrl}`,
+//         },
+//       },
+
+//       {
+//         type: "meta",
+//         attributes: {
+//           name: "og:image",
+//           content: `${Logo}`,
 //         },
 //       },
 
@@ -157,16 +156,6 @@ export const getPath: GetPath<TemplateProps> = ({ document }) => {
 //           content: `${metaTitle}`,
 //         },
 //       },
-//       // {
-//       //   type: "meta",
-//       //   attributes: {
-//       //     name: "og:image",
-//       //     content: `${Logo}`
-//       //   },
-//       // },
-
-//       /// twitter tag
-
 //       {
 //         type: "meta",
 //         attributes: {
@@ -178,16 +167,16 @@ export const getPath: GetPath<TemplateProps> = ({ document }) => {
 //         type: "meta",
 //         attributes: {
 //           name: "twitter:url",
-//           content: stagingBaseUrl + currentUrl,
+//           content: `${stagingBaseUrl}/${currentUrl}`,
 //         },
 //       },
-//       // {
-//       //   type: "meta",
-//       //   attributes: {
-//       //     name: "twitter:image",
-//       //     content: `${Logo}`
-//       //   },
-//       // },
+//       {
+//         type: "meta",
+//         attributes: {
+//           name: "twitter:image",
+//           content: `${Logo}`,
+//         },
+//       },
 //       {
 //         type: "meta",
 //         attributes: {
@@ -201,33 +190,13 @@ export const getPath: GetPath<TemplateProps> = ({ document }) => {
 
 const State: Template<TemplateRenderProps> = ({
   relativePrefixToRoot,
-  path,
   document,
+  __meta
 }) => {
-  const {
-    name,
-    description,
-    c_globalData,
-    dm_directoryParents,
-    dm_directoryChildren,
-    dreamsNew_addressRegionDisplayName,
-    c_canonical,
-    c_metaDescription,
-    c_metaTitle,
-    _site,
-    __meta
-  } = document;
-  let templateData = { document: document, __meta: __meta };
-  var sortedChildren = dm_directoryChildren.sort(function (a: any, b: any) {
-    var a = a.name;
-    var b = b.name;
-    return a < b ? -1 : a > b ? 1 : 0;
-  });
+  const { name, dm_directoryParents, dm_directoryChildren } = document;
 
-  let slugString = "/";
-  document.dm_directoryParents.forEach((e: any) => {
-    slugString = e.slug + "/";
-  });
+  let templateData = { document: document, __meta: __meta };
+
   const childrenDivs =
     dm_directoryChildren &&
     dm_directoryChildren.map((entity: any) => {
@@ -245,15 +214,14 @@ const State: Template<TemplateRenderProps> = ({
             <div className="w-1/2 storelocation-category md:w-1/3 lg:w-1/4 px-4">
               <a
                 key={entity.slug}
-                href={"/" + entity.dm_directoryChildren[0].slug + ".html"}
+                href={stagingBaseUrl+"/" + entity.dm_directoryChildren[0].slug + ".html"}
                 className="hover:text-red"
               >
                 {entity.name} ({entity.dm_directoryChildrenCount})
               </a>
             </div>
           );
-        }
-         else {
+        } else {
           let name: any = entity.dm_directoryChildren[0].name.toLowerCase();
           let string: any = name.toString();
           let removeSpecialCharacters = string.replace(
@@ -265,81 +233,78 @@ const State: Template<TemplateRenderProps> = ({
           url = `${entity.dm_directoryChildren[0].id}-${finalString}.html`;
           return (
             <div className="w-1/2 storelocation-category md:w-1/3 lg:w-1/4 px-4">
-              <Link key={entity.slug} href={"/" + url} className="hover:text-red" rel="noopener noreferrer" eventName={`name`}>
+              <a key={entity.slug} href={stagingBaseUrl+ "/" + url} className="hover:text-red">
                 {entity.name} ({entity.dm_directoryChildrenCount})
-              </Link>
+              </a>
             </div>
           );
         }
-      } 
-      else {
+      } else {
         return (
           <div className="w-1/2 storelocation-category md:w-1/3 lg:w-1/4 px-4">
-            <Link
+            <a
               key={entity.slug}
-              href={"/" + entity.slug + ".html"}
+              href={stagingBaseUrl+"/" + entity.slug + ".html"}
               className="hover:text-red"
-              rel="noopener noreferrer" eventName={`name`}
             >
               {entity.name} ({entity.dm_directoryChildrenCount})
-            </Link>
+            </a>
           </div>
         );
       }
     });
-  // let breadcrumbScheme: any = [];
-  // let currentIndex: any = 0;
-  // dm_directoryParents &&
-  //   dm_directoryParents.map((i: any, index: any) => {
-  //     currentIndex = index;
-  //     if (index != 0) {
-  //       breadcrumbScheme.push({
-  //         "@type": "ListItem",
-  //         position: index,
-  //         item: {
-  //           "@id": `${stagingBaseUrl}/${i.slug}`,
-  //           name: i.name,
-  //         },
-  //       });
-  //     }
-  //   });
-  // breadcrumbScheme.push({
-  //   "@type": "ListItem",
-  //   position: currentIndex + 1,
-  //   item: {
-  //     "@id": `${stagingBaseUrl}/${document.slug.toString()}.html`,
-  //     name: document.name,
-  //   },
-  // });
+
+  let breadcrumbScheme: any = [];
+  let currentIndex: any = 0;
+  dm_directoryParents &&
+    dm_directoryParents.map((i: any, index: any) => {
+      currentIndex = index;
+      if (index != 0) {
+        breadcrumbScheme.push({
+          "@type": "ListItem",
+          position: index,
+          item: {
+            "@id": `${stagingBaseUrl}/${i.slug}`,
+            name: i.name,
+          },
+        });
+      }
+    });
+  breadcrumbScheme.push({
+    "@type": "ListItem",
+    position: currentIndex + 1,
+    item: {
+      "@id": `${stagingBaseUrl}/${document.slug.toString()}.html`,
+      name: document.name,
+    },
+  });
+
   return (
     <>
-     {/* <JsonLd<Organization>
+      {/* <JsonLd<Organization>
         item={{
           "@context": "https://schema.org",
           "@type": "Organization",
-          name: "Ryman",
-          url: "https://www.rymanbusiness.com/",
-          logo: "https://eu.evocdn.io/dealer/1411/content/media/My_Theme/ry-foot-logo.png",
+          name: "Favorite Fried Chicken Limited",
+          url: "https://favorite.co.uk/",
+          logo: "https://favorite.co.uk/assets/img/logo-social.png",
           address: {
             "@type": "PostalAddress",
-            // streetAddress: address.line1,
-            // addressLocality: address.city,
-            // addressRegion: address.region,
-            // postalCode: address.postalCode,
+            streetAddress: "7 Davy Road",
+            addressLocality: "Clacton-on-Sea",
+            addressRegion: "Essex",
+            postalCode: "CO15 4XD",
             addressCountry: "United Kingdom",
           },
           contactPoint: {
             "@type": "ContactPoint",
             contactType: "contact",
-            telephone: "0333 103 0933",
-            email: "https://www.rymanbusiness.com/contact-us"
+            telephone: "01255 222568",
           },
           sameAs: [
-            "https://www.facebook.com/rymanbusiness/",
-            "https://twitter.com/RymanBusiness",
-            "https://www.linkedin.com/company/rymanbusiness",
-            "https://www.instagram.com/rymanbusiness/"
-           
+            "https://www.facebook.com/FavoriteChicken",
+            "https://www.instagram.com/favoritechickenribs",
+            "https://twitter.com/FavoriteChicken",
           ],
         }}
       /> */}
@@ -352,30 +317,44 @@ const State: Template<TemplateRenderProps> = ({
           itemListElement: breadcrumbScheme,
         }}
       /> */}
-         <AnalyticsProvider
+      <AnalyticsProvider
         templateData={templateData}
-        enableDebugging={AnalyticsEnableDebugging}
+        enableDebugging={AnalyticsEnableDebugging} 
         enableTrackingCookie={AnalyticsEnableTrackingCookie}
       >
         {" "}
-        <AnalyticsScopeProvider name={""}>
-        {/* <Header ></Header> */}
+        <AnalyticsScopeProvider name={"header"}>
+          <Header></Header>
+      {/* <Header
+        data={document._site.c_headerLinks1}
+        facebookPageUrl={document._site.facebookPageUrl}
+        instagramHandle={document._site.instagramHandle}
+        twitterHandle={document._site.twitterHandle}
+        c_tikTok={document._site.c_tikTok}
+        appStore={document._site.c_appStore}
+        playStore={document._site.c_playStore}
+      /> */}
       <BreadCrumbs
         name={name}
-        parents={dm_directoryParents}
-        baseUrl={relativePrefixToRoot}
-        address={{}}
+        parents={dm_directoryParents}        
+        address={""}
       ></BreadCrumbs>
       {/* <Banner
-        Name={name}
-        TagLine={c_banner.tagline}
+        Name={document.dm_directoryParents[1].name}
+        TagLine={""}
         BackgroundImage={
-          c_bannerimage ? c_bannerimage.url : bannerImage
+          document._site.c_directoryManagerBannerImage.url
+            ? document._site.c_directoryManagerBannerImage.url
+            : bannerImage
         }
+        CtaButton={""}
+        text={name}
+        template={"state"}
       /> */}
-      <h1 className="sec_heading mt-12" style={{ textAlign: "center" }}>
+
+      <h3 className="sec_heading mt-12" style={{ textAlign: "center" }}>
         Cities in {name}, {document.dm_directoryParents[1].name}{" "}
-      </h1>
+      </h3>
       <div className="directory-country nearby-sec">
         <div className="container">
           <div className="flex flex-wrap justify-center -mx-[15px]">
@@ -384,10 +363,9 @@ const State: Template<TemplateRenderProps> = ({
           </div>
         </div>
       </div>
-
-      {/* <Footer ></Footer> */}
-               </AnalyticsScopeProvider>
-          </AnalyticsProvider>
+    <Footer></Footer>
+      </AnalyticsScopeProvider>
+      </AnalyticsProvider>
     </>
   );
 };

@@ -49,7 +49,7 @@ const Faq = (faqData: Faq) => {
           </div>
 
           <div className="faq-blocks">
-            <div className="left-faq">
+            {/* <div className="left-faq">
               {faq_Data.map((i: any, index: any) => {
                 if (index + 1 <= leftFaqLen) {
                   return (
@@ -78,12 +78,12 @@ const Faq = (faqData: Faq) => {
                   );
                 }
               })}
-            </div>
+            </div> */}
 
             <div className="right-faq">
               <div className="faq-block">
                 {faq_Data.map((i: any, index: any) => {
-                  if (index + 1 > leftFaqLen) {
+                  // if (index + 1 > leftFaqLen) {
                     return (
                       <>
                         <div
@@ -107,7 +107,7 @@ const Faq = (faqData: Faq) => {
                         </div>
                       </>
                     );
-                  }
+                  // }
                 })}
               </div>
             </div>

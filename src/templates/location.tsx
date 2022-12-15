@@ -502,13 +502,12 @@ const Location: Template<ExternalApiRenderData> = ({
             appStore={_site.c_appStore}
             playStore={_site.c_playStore}
           /> */}
-        
-        <BreadCrumbs
+        <header></header>
+       <BreadCrumbs
           name={name}
           parents={dm_directoryParents}
-          baseUrl={relativePrefixToRoot}
-          address={{}}
-        ></BreadCrumbs>
+          address={address}
+></BreadCrumbs> 
         
         <Banner
           Name={name}
@@ -551,7 +550,17 @@ const Location: Template<ExternalApiRenderData> = ({
         ) : (
           <></>
         )} */}
-     
+     {c_title || c_description1 || androidAppUrl || iosAppUrl ? (
+          <AddPromotion
+            c_title={c_title}
+            c_description1={c_description1}
+            c_backgroundimages={c_backgroundImages}
+            androidAppUrl={androidAppUrl}
+            iosAppUrl={iosAppUrl}
+          />
+        ) : (
+          <></>
+        )}
         {c_frequentlyAskedQuestions ? (
           <Faq prop={c_frequentlyAskedQuestions} />
         ) : (
@@ -566,17 +575,8 @@ const Location: Template<ExternalApiRenderData> = ({
           slug={slug}
           // what3WordsAddress={what3WordsAddress}
         />
-     {c_title || c_description1 || androidAppUrl || iosAppUrl ? (
-          <AddPromotion
-            c_title={c_title}
-            c_description1={c_description1}
-            c_backgroundimages={c_backgroundImages}
-            androidAppUrl={androidAppUrl}
-            iosAppUrl={iosAppUrl}
-          />
-        ) : (
-          <></>
-        )}
+     
+        <Footer></Footer>
         {/* <Footer
           data={_site.c_footerLinks}
           address={_site.address}
