@@ -502,7 +502,7 @@ const Location: Template<ExternalApiRenderData> = ({
             appStore={_site.c_appStore}
             playStore={_site.c_playStore}
           /> */}
-        <header></header>
+        <Header></Header>
        <BreadCrumbs
           name={name}
           parents={dm_directoryParents}
