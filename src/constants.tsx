@@ -18,13 +18,13 @@ export const callNearByApi = "server-side";
 export const robotsMetaStatus = "noindex, nofollow";
 export const OrganizationAddress = {
   type: "PostalAddress",
-  streetAddress: "7 Davy Road",
-  addressLocality: "Clacton-on-Sea",
-  addressRegion: "Essex",
-  postalCode: "CO15 4XD",
-  addressCountry: "United Kingdom",
+  streetAddress: "papa john's pizza",
+  addressLocality: "Papa John's International, Inc.",
+  addressRegion: "Louisville",
+  postalCode: "99900",
+  addressCountry: "Louisville",
 };
-export const OrganizationTelephone = "01255 222568";
+export const OrganizationTelephone = "40269-9990";
 export const OrganizationSocialMediaUrls = {
   facebook: "https://www.facebook.com/papajohnsmx",
   instagram: "https://www.instagram.com/papajohnsmx/",

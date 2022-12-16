@@ -281,20 +281,20 @@ const State: Template<TemplateRenderProps> = ({
 
   return (
     <>
-      {/* <JsonLd<Organization>
+           <JsonLd<Organization>
         item={{
           "@context": "https://schema.org",
           "@type": "Organization",
-          name: "Favorite Fried Chicken Limited",
-          url: "https://favorite.co.uk/",
-          logo: "https://favorite.co.uk/assets/img/logo-social.png",
+          name: "papa john's pizza",
+          url: "https://www.papajohns.com/international/",
+          logo: "https://www.papajohns.com.mx/en-US/images/logos/pji_arch_red_en.png",
           address: {
             "@type": "PostalAddress",
-            streetAddress: "7 Davy Road",
-            addressLocality: "Clacton-on-Sea",
-            addressRegion: "Essex",
-            postalCode: "CO15 4XD",
-            addressCountry: "United Kingdom",
+            streetAddress: "PApa John's pizza",
+            addressLocality: "Papa John's International, Inc.",
+            addressRegion: "Louisville",
+            postalCode: "99900",
+            addressCountry: "Louisville",
           },
           contactPoint: {
             "@type": "ContactPoint",
@@ -302,21 +302,21 @@ const State: Template<TemplateRenderProps> = ({
             telephone: "01255 222568",
           },
           sameAs: [
-            "https://www.facebook.com/FavoriteChicken",
-            "https://www.instagram.com/favoritechickenribs",
-            "https://twitter.com/FavoriteChicken",
+           "https://www.facebook.com/papajohnsmx",
+          "https://www.instagram.com/papajohnsmx/",
+           "https://www.twitter.com/papajohnsmx",
           ],
         }}
-      /> */}
+      />
 
-      {/* <JsonLd<BreadcrumbList>
+      <JsonLd<BreadcrumbList>
         item={{
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
 
           itemListElement: breadcrumbScheme,
         }}
-      /> */}
+      />
       <AnalyticsProvider
         templateData={templateData}
         enableDebugging={AnalyticsEnableDebugging} 
