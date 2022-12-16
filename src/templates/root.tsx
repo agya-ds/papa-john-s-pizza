@@ -105,16 +105,19 @@ const Root: Template<TemplateRenderProps> = ({
         baseUrl={relativePrefixToRoot}
       ></BreadCrumbs> */}
       <div className="directory-root storelocation-category py-5 lg:py-[60px]">
+      <h3 className="sec_heading mt-12" style={{ textAlign: "center" }} >
+        <p >All  PAPA JOHN'S PIZZA STORES IN</p>
+      </h3>
         <div className="container">
-          <div className="flex flex-wrap -mx-4">
+          <div className="flex flex-wrap justify-center ">
             {dm_directoryChildren.map((child: any) => {
               return (
                 <>
-                  <div className="w-1/2 md:w-1/3 lg:w-1/4 px-4">
+                  <div className="w-1/2 md:w-1/3 lg:w-1/4 px-4 "> 
                     <a
                       href={slug + "/" + child.slug + ".html"}
                       key={child.slug}
-                      className="hover:text-red"
+                      className="hover:text-red ml-[416px]"
                     >
                       {child.name} {child.dm_directoryChildrenCount}
                     </a>
