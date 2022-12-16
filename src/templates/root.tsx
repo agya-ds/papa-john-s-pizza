@@ -115,7 +115,7 @@ const Root: Template<TemplateRenderProps> = ({
                 <>
                   <div className="w-1/2 md:w-1/3 lg:w-1/4 px-4 "> 
                     <a
-                      href={slug + "/" + child.slug + ".html"}
+                      href={ child.slug + ".html"}
                       key={child.slug}
                       className="hover:text-red ml-[416px]"
                     >
