@@ -6,7 +6,7 @@ export const liveAPIKey = "71dbd045a5d7c414e36acbdec69473c2";
 export const googleMapsApiKey = "AIzaSyDZNQlSlEIkFAct5VzUtsP4dSbvOr2bE18";
 export const savedFilterId = "1111065609";
 export const entityTypes = "Location";
-export const stagingBaseUrl = "";
+export const stagingBaseUrl = "https://caringly-extended-urchin.sbx.pgsdemo.com";
 export const livSiteUrl = "";
 export const cookieText =
   "We use cookies on our website. Some are essential to enable to site to function, others are analytical and help us monitor site usage, whilst some are used for the personalisation of ads. You are free to manage this via your browser setting at any time. To learn more about how we use these cookies, please see our ";
