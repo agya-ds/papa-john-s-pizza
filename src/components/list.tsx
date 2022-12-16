@@ -63,13 +63,13 @@ const List = (foodItem: c_foodItems) => {
               },
             }}
           >
-            {foodItem.prop &&
-              foodItem.prop.map((i: any, index: any) => {
+            {foodItem?.prop &&
+              foodItem?.prop.map((i: any, index: any) => {
                 return (
                   <SplideSlide key={index}>
                     <div className="slide-img">
 
-                     {i.image.map((e: any) => {
+                     {i.image?.map((e: any) => {
                         return ( <>
                       
                         <img src={e.url ? e.url : ""}

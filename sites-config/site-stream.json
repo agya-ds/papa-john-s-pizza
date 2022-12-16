@@ -1,13 +1,15 @@
 {
-    "$id": "site-entity",
+    "$id": "ce_global",
     "filter": {
-      "entityIds": ["ffc-footer"]
+      "entityIds": ["ce_global"]
     },
     "source": "knowledgeGraph",
     "fields": [
      
-        "name"  
-     
+        "name" , 
+        "c_canonical",
+        "c_metaDescription",
+        "c_metaTitle"
 
     ],
     "localization": {

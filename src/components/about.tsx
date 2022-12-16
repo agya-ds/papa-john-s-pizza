@@ -8,12 +8,12 @@ export default function About(props: any) {
   const { c_aboutData} = props;
   return ( 
     <>
-            {c_aboutData.title && c_aboutData.description ? (
+            {c_aboutData?.title && c_aboutData?.description ? (
               <div  className=" py-10">
                 
                 <div className="container mx-auto ab-secmain flex flex-wrap items-center">
                   <div className="w-full md:w-1/2 px-5">
-                    {c_aboutData.photoGallery.map((p:any)=>{
+                    {c_aboutData?.photoGallery && c_aboutData.photoGallery?.map((p:any)=>{
                       return(
                        <img src={p.url}/>
                       )

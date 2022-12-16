@@ -107,9 +107,9 @@ export const config: TemplateConfig = {
       "c_frequentlyAskedQuestions.question",
       "c_frequentlyAskedQuestions.answer",
       /*seo*/
-      // "c_canonical",
-      // "c_metaDescription",
-      // "c_metaTitle",
+      "c_canonical",
+      "c_metaDescription",
+      "c_metaTitle",
       // "logo"
       /* DM fields */
       "dm_directoryParents.name",
@@ -560,7 +560,7 @@ const Location: Template<ExternalApiRenderData> = ({
           />
         ) : (
           <></>
-        )}
+         )}
         {c_frequentlyAskedQuestions ? (
           <Faq prop={c_frequentlyAskedQuestions} />
         ) : (

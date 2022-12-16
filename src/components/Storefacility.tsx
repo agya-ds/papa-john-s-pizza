@@ -18,7 +18,7 @@ export default function Storefacility(props: services) {
       <h2>Menu Items</h2>   
         <div className="boxes-row">
 
-            {c_menuitems.map((i: any, index: any) => {
+            {c_menuitems?.map((i: any, index: any) => {
                        
 
                 return (
